@@ -33,10 +33,11 @@ color:
 
 # Footer settings
 footer:
-  copyright: Dr. Henry Jekyll
-  location: Location
-  social: Around the Web
-  credits: Credits
+  copyright: "Made with ❤️ for My Love"
+  location: "Anywhere, as long as we're together"
+  social: "Find Me Online"
+  credits: "A special website designed with love 💕"
+
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
