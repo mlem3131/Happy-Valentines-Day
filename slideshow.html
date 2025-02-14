@@ -34,16 +34,16 @@ permalink: /slideshow/
         let ctx = canvas.getContext("2d");
 
         let bird = new Image();
-        bird.src = "img/custom-bird.png"; // Change this to your custom bird image
+        bird.src = "{{ site.baseurl }}/img/portfolio/cake.png""; // Change this to your custom bird image
 
         let bg = new Image();
-        bg.src = "https://i.imgur.com/MTYpu5k.png"; // Background image
+        bg.src = "{{ site.baseurl }}/img/portfolio/flappy background.png"; // Background image
 
         let pipeNorth = new Image();
-        pipeNorth.src = "https://i.imgur.com/O6QpS8M.png"; // Pipe
+        pipeNorth.src = " {{ site.baseurl }}/img/portfolio/pipe.png"; // Pipe
 
         let pipeSouth = new Image();
-        pipeSouth.src = "https://i.imgur.com/MTYpu5k.png"; // Pipe flipped
+        pipeSouth.src = "{{ site.baseurl }}/img/portfolio/pipe.png""; // Pipe flipped
 
         let gap = 85;
         let gravity = 1.5;
