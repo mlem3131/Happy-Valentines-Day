@@ -26,80 +26,87 @@ permalink: /slideshow/
     <script>
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
-
+        
         const bird = new Image();
         const bg = new Image();
         const fg = new Image();
         const pipeNorth = new Image();
         const pipeSouth = new Image();
-
-        bird.src = "{{ site.baseurl }}/img/portfolio/yellowbird-midflap.png";
-        bg.src = "{{ site.baseurl }}/img/portfolio/background-day.png";
-        fg.src = "{{ site.baseurl }}/img/portfolio/base.png";
-        pipeNorth.src = "{{ site.baseurl }}/img/portfolio/pipe-green.png";
-        pipeSouth.src = "{{ site.baseurl }}/img/portfolio/pipe-green.png";
-
+        
+        bird.src = "https://i.imgur.com/s8tW4BU.png";
+        bg.src = "https://i.imgur.com/bYv4oNc.png";
+        fg.src = "https://i.imgur.com/AdfI8t5.png";
+        pipeNorth.src = "https://i.imgur.com/Z7sLkG5.png";
+        pipeSouth.src = "https://i.imgur.com/GK7AR3G.png";
+        
         let gap = 85;
         let constant;
         let bX = 10;
         let bY = 150;
         let gravity = 1.5;
         let score = 0;
-
+        
         document.addEventListener("keydown", moveUp);
         function moveUp() {
             bY -= 25;
         }
-
+        
         let pipes = [];
         pipes[0] = {
             x: canvas.width,
             y: 0
         };
-
+        
         function draw() {
             ctx.drawImage(bg, 0, 0);
-
+            
             for (let i = 0; i < pipes.length; i++) {
                 constant = pipeNorth.height + gap;
                 ctx.drawImage(pipeNorth, pipes[i].x, pipes[i].y);
                 ctx.drawImage(pipeSouth, pipes[i].x, pipes[i].y + constant);
-
+                
                 pipes[i].x--;
-
+                
                 if (pipes[i].x === 125) {
                     pipes.push({
                         x: canvas.width,
                         y: Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height
                     });
                 }
-
+                
                 if (bX + bird.width >= pipes[i].x && bX <= pipes[i].x + pipeNorth.width &&
                     (bY <= pipes[i].y + pipeNorth.height || bY + bird.height >= pipes[i].y + constant) ||
                     bY + bird.height >= canvas.height - fg.height) {
                     location.reload();
                 }
-
+                
                 if (pipes[i].x === 5) {
                     score++;
                 }
             }
-
+            
             ctx.drawImage(fg, 0, canvas.height - fg.height);
             ctx.drawImage(bird, bX, bY);
             bY += gravity;
-
+            
             ctx.fillStyle = "#000";
             ctx.font = "20px Arial";
             ctx.fillText("Score: " + score, 10, canvas.height - 20);
-
+            
             requestAnimationFrame(draw);
         }
-
+        
         draw();
     </script>
 </body>
 </html>
+<!-- 
+        bird.src = "{{ site.baseurl }}/img/portfolio/yellowbird-midflap.png";
+        bg.src = "{{ site.baseurl }}/img/portfolio/background-day.png";
+        fg.src = "{{ site.baseurl }}/img/portfolio/base.png";
+        pipeNorth.src = "{{ site.baseurl }}/img/portfolio/pipe-green.png";
+        pipeSouth.src = "{{ site.baseurl }}/img/portfolio/pipe-green.png"; -->
+
 
 
      
