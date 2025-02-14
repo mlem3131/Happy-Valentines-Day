@@ -1,0 +1,70 @@
+---
+layout: page
+title: "Slideshow"
+permalink: /slideshow.html
+---
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+<h2 class="text-center">Beautiful Moments 💖</h2>
+<p class="text-center">A collection of our favorite memories together! 📸</p>
+
+<!-- Swiper -->
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="img/slideshow/photo1.jpg" alt="Memory 1"></div>
+    <div class="swiper-slide"><img src="img/slideshow/photo2.jpg" alt="Memory 2"></div>
+    <div class="swiper-slide"><img src="img/slideshow/photo3.jpg" alt="Memory 3"></div>
+    <div class="swiper-slide"><img src="img/slideshow/photo4.jpg" alt="Memory 4"></div>
+  </div>
+  <!-- Navigation buttons -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".swiper-container", {
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+  });
+</script>
+
+<!-- Custom CSS -->
+<style>
+  .swiper-container {
+    width: 80%;
+    height: 500px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  
+  h2, p {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+</style>
